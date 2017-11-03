@@ -1,7 +1,7 @@
 # Starter code for an avoider game.
 # University of Utah, David Johnson, 2017.
 # This code, or code derived from this code, may not be shared without permission.
-
+#
 import sys, pygame, math
 
 # This function loads a series of sprite images stored in a folder with a

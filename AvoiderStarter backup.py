@@ -39,13 +39,15 @@ def main():
 
     screen = pygame.display.set_mode((1000,1000))
 
+    #hero is facing
+    is_facing_right = True
+
     # Load in the background image
     map = pygame.image.load("./map/map0.png").convert_alpha()
     # Store window width and height in different forms for easy access
     map_size = map.get_size()
     # The map rect is basically the whole screen, and we will draw to it to fill the background with the image
     map_rect = map.get_rect()
-    screen.blit(map, map_rect)
     
     # create the window the same size as the map image
 
@@ -58,7 +60,8 @@ def main():
     # The frame_count counts all the frames that have passed since the start of the game.
     # Look at the print statements in the loop to see how to use the count with a mod function
     # to get cycles of different lengths.
-    frame_count = 0;
+    frame_count = 0
+        
 
     # The clock helps us manage the frames per second of the animation
     clock = pygame.time.Clock()
@@ -103,28 +106,20 @@ def main():
         hero_sprite = hero[frame_count%len(hero)]
         if is_facing_right:
             hero_sprite = pygame.transform.flip(hero_sprite, True, False)
+        hero_rect.center = pygame.mouse.get_pos()
         screen.blit(hero_sprite, hero_rect)
         
-##        frame_count = frame_count
-##        screen.blit(sprite[frame_count], sprite_rect)
-##        frame_count += 1
-##        if frame_count >= len(sprite):
-##            frame_count = 0
-
-        #Setup Mouse
-        x,y = pygame.mouse.get_pos()
-        screen.blit(sprite[frame_count],sprite_rect)
 
         # Bring drawn changes to the front
         pygame.display.update()
             
 
         # We are basically done this with frame of animation, so update the count.
-        frame_count += 0
+        frame_count += 1
 
         # This tries to force the loop to run at 1/2 fps. The is artifically slow so the output above
         # can be inspected. You should change this speed. Something like 30 is more normal.
-        clock.tick(0.5)
+        clock.tick(30)
 
     # This happens once the loop is finished - the game is over.
     pygame.quit()

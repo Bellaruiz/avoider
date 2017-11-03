@@ -53,9 +53,8 @@ def main():
 
     # Load Sprite (player)
     hero = load_piskell_sprite("doge", 2)
-    # get rect
-    hero_rect = hero[0].get_rect()    
-    
+    hero_rect = hero[0].get_rect()
+
     # Sprite Character
     # The frame_count counts all the frames that have passed since the start of the game.
     # Look at the print statements in the loop to see how to use the count with a mod function
@@ -99,7 +98,7 @@ def main():
         print("Cycle of length 4:", frame_count%4) # counts 0,1,2,3,0,1,2,3
 
         # Render text to the screen
-        label = myfont.render("By David!", True, (255,255,0))
+        label = myfont.render("By Bella and Jai!", True, (255,255,0))
         screen.blit(label, (20,20))
 
         # Do drawing to the screen
@@ -108,7 +107,7 @@ def main():
             hero_sprite = pygame.transform.flip(hero_sprite, True, False)
         hero_rect.center = pygame.mouse.get_pos()
         screen.blit(hero_sprite, hero_rect)
-        
+
 
         # Bring drawn changes to the front
         pygame.display.update()
@@ -119,7 +118,7 @@ def main():
 
         # This tries to force the loop to run at 1/2 fps. The is artifically slow so the output above
         # can be inspected. You should change this speed. Something like 30 is more normal.
-        clock.tick(30)
+        clock.tick(25)
 
     # This happens once the loop is finished - the game is over.
     pygame.quit()

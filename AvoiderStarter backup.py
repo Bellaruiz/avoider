@@ -58,6 +58,9 @@ def main():
     catto = load_piskell_sprite("Catto", 2)
     catto_rect = catto[0].get_rect()
 
+    sprinkler = load_piskell_sprite("sprinkler", 4)
+    sprinkler_rect = sprinkler[0].get_rect()
+
     # Sprite Character
     # The frame_count counts all the frames that have passed since the start of the game.
     # Look at the print statements in the loop to see how to use the count with a mod function
@@ -110,6 +113,12 @@ def main():
             hero_sprite = pygame.transform.flip(hero_sprite, True, False)
         hero_rect.center = pygame.mouse.get_pos()
         screen.blit(hero_sprite, hero_rect)
+
+        sprinkler_sprite = sprinkler[frame_count%len(sprinkler)]
+        screen.blit(sprinkler_sprite, sprinkler_rect)
+
+        catto_sprite = catto[frame_count%len(catto)]
+        screen.blit(catto_sprite, catto_rect)
 
 
         # Bring drawn changes to the front

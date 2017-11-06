@@ -55,6 +55,9 @@ def main():
     hero = load_piskell_sprite("doge", 2)
     hero_rect = hero[0].get_rect()
 
+    catto = load_piskell_sprite("Catto", 2)
+    catto_rect = catto[0].get_rect()
+
     # Sprite Character
     # The frame_count counts all the frames that have passed since the start of the game.
     # Look at the print statements in the loop to see how to use the count with a mod function

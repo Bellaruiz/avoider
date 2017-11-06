@@ -37,7 +37,7 @@ def main():
     # Get a font
     myfont = pygame.font.SysFont("monospace", 24)
 
-    screen = pygame.display.set_mode((1000,1000))
+    screen = pygame.display.set_mode((800,800))
 
     #hero is facing
     is_facing_right = True

@@ -210,6 +210,9 @@ def main():
         bounce_rect_between_two_positions( catto_rect, (600,250), (600,550), 24, frame_count )
         catto_sprite = catto[frame_count%len(catto)]
         screen.blit(catto_sprite, catto_rect)
+        bounce_rect_between_two_positions( catto_rect, (100,400), (100,600), 24, frame_count )
+        catto_sprite = catto[frame_count%len(catto)]
+        screen.blit(catto_sprite, catto_rect)
 
 
         if hero_rect.colliderect(catto_rect):

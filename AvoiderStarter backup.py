@@ -94,9 +94,9 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 is_alive = False
-            if event.type == MOUSEDOWN:
+            if event.mouse.get_pressed == MOUSEDOWN:
                 if cursor_color ==(167,167,167,255):
-            hero_rect.center = pygame.mouse.get_pos
+                    hero_rect.top_left = pygame.mouse.get_pos
                 
                 
 #<<<<<<< HEAD

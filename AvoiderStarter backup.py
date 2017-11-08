@@ -95,20 +95,11 @@ def main():
             if event.type == pygame.QUIT:
                 is_alive = False
 #<<<<<<< HEAD
-            elif event.type == pygame.MOUSEBUTTONDOWN:
-                x,y = event.pos
-            seconds=(pygame.time.get_ticks()-start_ticks)/1000 #calculate how many seconds
-            seconds>10 # if more than 10 seconds close the game
-            break
-        print (seconds) #print how many seconds
-
-        
-#=======
-        if event.type == pygame.MOUSEBUTTONDOWN:
+##            if event.type == pygame.MOUSEBUTTONDOWN:
             time = pygame.time.get_ticks()
-##        if time >= 5000
-##            is_alive = False
-##            print('gameover')
+            if time >= 10000:
+                is_alive =  False
+                print("gameover")
 
 #MAP 2
         screen.blit(level, map_rect)
@@ -162,7 +153,7 @@ def main():
 
         Timer = myfont.render("Count:"+ str(int(time)),
         True, (255,255,0))
-        screen.blit(Timer,(700,20))
+        screen.blit(Timer,(600,20))
 
         # Do drawing to the screen
         hero_sprite = hero[frame_count%len(hero)]

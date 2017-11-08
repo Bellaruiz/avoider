@@ -88,25 +88,23 @@ def main():
     # Loop while the player is still active
     is_bone_taken = False
 
-
     pygame.mouse.set_pos([0,0])
-    start_ticks=pygame.time.get_ticks() #starter tick
+##    start_ticks=pygame.time.get_ticks() #starter tick
     while is_alive:
         # Check events by looping over the list of events
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 is_alive = False
-            elif event.type == pygame.MOUSEBUTTONDOWN:
+            if event.type == pygame.MOUSEBUTTONDOWN:
                 x,y = event.pos
-            seconds=(pygame.time.get_ticks()-start_ticks)/1000 #calculate how many seconds
-            elif seconds>10: # if more than 10 seconds close the game
-                break
-        print (seconds) #print how many seconds
-
-        
+        time = pygame.time.get_ticks()
+        if time >= 5000:
+            is_alive = False
+            print('gameover')
         screen.blit(level, map_rect)
         if not is_bone_taken:
             screen.blit(bone, (600,700))
+
 
         # This grabs the current color under the cursor from the screen. Note that anything
         # drawn on the screen before this statement adds to the color. I could have also
@@ -148,10 +146,13 @@ def main():
 
 
         #render text to the screen
-        Timer = myfont.render("FPS:"+ str(int(fps)),
+        FPS = myfont.render("FPS:"+ str(int(fps)),
         True,(255,255,0))
-        screen.blit(Timer,(20,20))
-##        frame_count =+ 1
+        screen.blit(FPS,(500,20))
+
+        Timer = myfont.render("Count:"+ str(int(time)),
+        True, (255,255,0))
+        screen.blit(Timer,(700,20))
 
         # Do drawing to the screen
         hero_sprite = hero[frame_count%len(hero)]
@@ -233,8 +234,6 @@ def main():
         # can be inspected. You should change this speed. Something like 30 is more normal.
         clock.tick(30)
 
-
-    time.sleep(2)
     # This happens once the loop is finished - the game is over.
     pygame.quit()
     sys.exit()

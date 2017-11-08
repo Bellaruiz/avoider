@@ -88,23 +88,26 @@ def main():
     is_bone_taken = False
     cursor_color = screen.get_at(pygame.mouse.get_pos())
     pygame.mouse.set_pos([0,0])
+    start = False
 ##    start_ticks=pygame.time.get_ticks() #starter tick
     while is_alive:
         # Check events by looping over the list of events
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 is_alive = False
-            if event.mouse.get_pressed == MOUSEDOWN:
+            if event.type == pygame.MOUSEBUTTONDOWN:
                 if cursor_color ==(167,167,167,255):
-                    hero_rect.top_left = pygame.mouse.get_pos
+                    start = True
+        if start:
+            hero_rect.center = pygame.mouse.get_pos()
                 
                 
 #<<<<<<< HEAD
 
-            time = pygame.time.get_ticks()
-            if time >= 15000:
-                is_alive =  False
-                print("gameover")
+        time = pygame.time.get_ticks()
+        if time >= 15000:
+            is_alive =  False
+            print("gameover")
 
 #MAP 2
         screen.blit(level, map_rect)
@@ -165,7 +168,6 @@ def main():
         
         if is_facing_right:
             hero_sprite = pygame.transform.flip(hero_sprite, True, False)
-##        hero_rect.center = pygame.mouse.get_pos()
         screen.blit(hero_sprite, hero_rect)
 
 ##<<<<<<< HEAD

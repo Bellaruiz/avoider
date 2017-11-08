@@ -94,7 +94,7 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 is_alive = False
-<<<<<<< HEAD
+#<<<<<<< HEAD
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 x,y = event.pos
             seconds=(pygame.time.get_ticks()-start_ticks)/1000 #calculate how many seconds
@@ -103,13 +103,14 @@ def main():
         print (seconds) #print how many seconds
 
         
-=======
-            if event.type == pygame.MOUSEBUTTONDOWN:
-        time = pygame.time.get_ticks()
-        if time >= 5000:
-            is_alive = False
-            print('gameover')
->>>>>>> 26d1b9960776ee56903142016adf44c9bfc731a3
+#=======
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            time = pygame.time.get_ticks()
+##        if time >= 5000
+##            is_alive = False
+##            print('gameover')
+
+#MAP 2
         screen.blit(level, map_rect)
         if not is_bone_taken:
             screen.blit(bone, (600,700))
@@ -174,8 +175,7 @@ def main():
 ##<<<<<<< HEAD
 
 
-##        catto_sprite = catto[frame_count%len(catto)]
-##        screen.blit(catto_sprite, catto_rect)
+
 
 ##=======
         

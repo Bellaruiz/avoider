@@ -1,6 +1,5 @@
 # Starter code for an avoider game.
-# University of Utah, David Johnson, 2017.
-# This code, or code derived from this code, may not be shared without permission.
+# Isabella Ruiz and Jai Davis,
 #
 import sys, pygame, math, time
 
@@ -96,7 +95,6 @@ def main():
             if event.type == pygame.QUIT:
                 is_alive = False
             if event.type == pygame.MOUSEBUTTONDOWN:
-                x,y = event.pos
         time = pygame.time.get_ticks()
         if time >= 5000:
             is_alive = False
@@ -215,13 +213,6 @@ def main():
             screen.fill((255,255,255))
             screen.blit(gameover, gameover_rect)
 
-##        #Set FPS
-##        fps = clock.get_fps()
-##        #render text to the screen
-##        label = myfont.render("FPS:"+ str(int(fps)),
-##        True,(255,255,0))
-##        screen.blit(label,(20,20))
-##        frame_count =+ 1
         
         # Bring drawn changes to the front
         pygame.display.update()

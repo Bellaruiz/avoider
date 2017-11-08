@@ -1,6 +1,5 @@
 # Starter code for an avoider game.
-# University of Utah, David Johnson, 2017.
-# This code, or code derived from this code, may not be shared without permission.
+# Isabella Ruiz and Jai Davis,
 #
 import sys, pygame, math, time
 
@@ -88,14 +87,14 @@ def main():
     # Loop while the player is still active
     is_bone_taken = False
 
-
     pygame.mouse.set_pos([0,0])
-    start_ticks=pygame.time.get_ticks() #starter tick
+##    start_ticks=pygame.time.get_ticks() #starter tick
     while is_alive:
         # Check events by looping over the list of events
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 is_alive = False
+<<<<<<< HEAD
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 x,y = event.pos
             seconds=(pygame.time.get_ticks()-start_ticks)/1000 #calculate how many seconds
@@ -104,9 +103,17 @@ def main():
         print (seconds) #print how many seconds
 
         
+=======
+            if event.type == pygame.MOUSEBUTTONDOWN:
+        time = pygame.time.get_ticks()
+        if time >= 5000:
+            is_alive = False
+            print('gameover')
+>>>>>>> 26d1b9960776ee56903142016adf44c9bfc731a3
         screen.blit(level, map_rect)
         if not is_bone_taken:
             screen.blit(bone, (600,700))
+
 
         # This grabs the current color under the cursor from the screen. Note that anything
         # drawn on the screen before this statement adds to the color. I could have also
@@ -148,10 +155,13 @@ def main():
 
 
         #render text to the screen
-        Timer = myfont.render("FPS:"+ str(int(fps)),
+        FPS = myfont.render("FPS:"+ str(int(fps)),
         True,(255,255,0))
-        screen.blit(Timer,(20,20))
-##        frame_count =+ 1
+        screen.blit(FPS,(500,20))
+
+        Timer = myfont.render("Count:"+ str(int(time)),
+        True, (255,255,0))
+        screen.blit(Timer,(700,20))
 
         # Do drawing to the screen
         hero_sprite = hero[frame_count%len(hero)]
@@ -214,13 +224,6 @@ def main():
             screen.fill((255,255,255))
             screen.blit(gameover, gameover_rect)
 
-##        #Set FPS
-##        fps = clock.get_fps()
-##        #render text to the screen
-##        label = myfont.render("FPS:"+ str(int(fps)),
-##        True,(255,255,0))
-##        screen.blit(label,(20,20))
-##        frame_count =+ 1
         
         # Bring drawn changes to the front
         pygame.display.update()
@@ -233,8 +236,6 @@ def main():
         # can be inspected. You should change this speed. Something like 30 is more normal.
         clock.tick(20)
 
-
-    time.sleep(2)
     # This happens once the loop is finished - the game is over.
     pygame.quit()
     sys.exit()

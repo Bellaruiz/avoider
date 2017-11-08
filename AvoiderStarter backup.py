@@ -95,24 +95,11 @@ def main():
             if event.type == pygame.QUIT:
                 is_alive = False
 #<<<<<<< HEAD
-<<<<<<< HEAD
-            elif event.type == pygame.MOUSEBUTTONDOWN:
-                x,y = event.pos
-##            seconds=(pygame.time.get_ticks()-start_ticks)/1000 #calculate how many seconds
-##            seconds>10 # if more than 10 seconds close the game
-##            break
-##        print (seconds) #print how many seconds
+
+   
 
         
-#=======
-        if event.type == pygame.MOUSEBUTTONDOWN:
-=======
-##            if event.type == pygame.MOUSEBUTTONDOWN:
->>>>>>> 22150f4034bf015ba03276ad257f0a52c75fc7e4
-            time = pygame.time.get_ticks()
-            if time >= 10000:
-                is_alive =  False
-                print("gameover")
+
 
 #MAP 2
         screen.blit(level, map_rect)

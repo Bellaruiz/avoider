@@ -99,8 +99,8 @@ def main():
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 x,y = event.pos
             seconds=(pygame.time.get_ticks()-start_ticks)/1000 #calculate how many seconds
-            elif seconds>10: # if more than 10 seconds close the game
-                break
+            seconds>10 # if more than 10 seconds close the game
+            break
         print (seconds) #print how many seconds
 
         
@@ -155,18 +155,17 @@ def main():
 
         # Do drawing to the screen
         hero_sprite = hero[frame_count%len(hero)]
-        catto_sprite = catto[frame_count%len(catto)]
+        
         if is_facing_right:
             hero_sprite = pygame.transform.flip(hero_sprite, True, False)
         hero_rect.center = pygame.mouse.get_pos()
         screen.blit(hero_sprite, hero_rect)
 
 ##<<<<<<< HEAD
-        sprinkler_sprite = sprinkler[frame_count%len(sprinkler)]
-        screen.blit(sprinkler_sprite, sprinkler_rect)
 
-        catto_sprite = catto[frame_count%len(catto)]
-        screen.blit(catto_sprite, catto_rect)
+
+##        catto_sprite = catto[frame_count%len(catto)]
+##        screen.blit(catto_sprite, catto_rect)
 
 ##=======
         
@@ -201,6 +200,7 @@ def main():
                 print('gameover')
             
         bounce_rect_between_two_positions( catto_rect, (600,250), (600,550), 24, frame_count )
+        catto_sprite = catto[frame_count%len(catto)]
         screen.blit(catto_sprite, catto_rect)
 
 
@@ -231,7 +231,7 @@ def main():
 
         # This tries to force the loop to run at 1/2 fps. The is artifically slow so the output above
         # can be inspected. You should change this speed. Something like 30 is more normal.
-        clock.tick(30)
+        clock.tick(20)
 
 
     time.sleep(2)

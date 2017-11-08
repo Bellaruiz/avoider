@@ -95,11 +95,11 @@ def main():
             if event.type == pygame.QUIT:
                 is_alive = False
 #<<<<<<< HEAD
-##            if event.type == pygame.MOUSEBUTTONDOWN:
-            time = pygame.time.get_ticks()
-            if time >= 10000:
-                is_alive =  False
-                print("gameover")
+
+   
+
+        
+
 
 #MAP 2
         screen.blit(level, map_rect)

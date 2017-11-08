@@ -97,7 +97,7 @@ def main():
 #<<<<<<< HEAD
 ##            if event.type == pygame.MOUSEBUTTONDOWN:
             time = pygame.time.get_ticks()
-            if time >= 60000:
+            if time >= 15000:
                 is_alive =  False
                 print("gameover")
 

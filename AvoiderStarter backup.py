@@ -97,10 +97,10 @@ def main():
 #<<<<<<< HEAD
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 x,y = event.pos
-            seconds=(pygame.time.get_ticks()-start_ticks)/1000 #calculate how many seconds
-            seconds>10 # if more than 10 seconds close the game
-            break
-        print (seconds) #print how many seconds
+##            seconds=(pygame.time.get_ticks()-start_ticks)/1000 #calculate how many seconds
+##            seconds>10 # if more than 10 seconds close the game
+##            break
+##        print (seconds) #print how many seconds
 
         
 #=======
